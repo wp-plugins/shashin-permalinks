@@ -31,7 +31,7 @@ The plugin does 2 things:
 * It replaces "?shashin_album_key=x(&page=y)" links in content by "/album/x/(page/y/)" links
 * it adds a rewrite rule to handle parameters for Shashin plugin
 
-= What is useful for ? =
+= What it is useful for ? =
 
 This plugin can be used to:
 
