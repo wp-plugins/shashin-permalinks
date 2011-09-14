@@ -41,6 +41,8 @@ This plugin can be used to:
 
 == Screenshots ==
 
+1. Shashin permalinks admin page
+
 == Upgrade Notice ==
 
 Nothing, for the moment...
