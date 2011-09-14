@@ -1,0 +1,78 @@
+# Translation of the WordPress plugin Shashin permalinks 1.0 by Sébastien "SLiX" Liénard.
+# Copyright (C) 2011 Sébastien "SLiX" Liénard
+# This file is distributed under the same license as the PACKAGE package.
+# Sébastien "SLiX" Liénard <my_nickname_at_kerlinux.org>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Shashin permalinks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-09 21:52+0200\n"
+"PO-Revision-Date: 2011-09-12 20:10+0200\n"
+"Last-Translator: Sébastien SLiX Liénard <my_nickname_at_kerlinux.org>\n"
+"Language-Team: fr_FR <my_nickname_at_kerlinux.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: shashin-permalinks.php:122 shashin-permalinks.php:169
+msgid "Shashin permalinks options"
+msgstr "Options des permaliens Shashin"
+
+#: shashin-permalinks.php:122
+msgid "Shashin permalinks"
+msgstr "Permaliens Shashin"
+
+#: shashin-permalinks.php:128
+msgid "You cannot edit the Shashin permalinks options."
+msgstr "Vous n'êtes pas autorisé à modifier les paramètres des permaliens Shashin"
+
+#: shashin-permalinks.php:139
+msgid "Value for <strong>Album</strong> parameter is invalid"
+msgstr "La valeur du paramètre <strong>Album</strong> est invalide"
+
+#: shashin-permalinks.php:144
+msgid "Value for <strong>Page</strong> parameter is invalid"
+msgstr "La valeur du paramètre <strong>Page</strong> est invalide"
+
+#: shashin-permalinks.php:149
+msgid "Shashin permalinks settings were not updated"
+msgstr "Les paramètres des permaliens Shashin n'ont pas été mis à jour"
+
+#: shashin-permalinks.php:154
+msgid "Shashin permalinks settings saved"
+msgstr "Les paramètres des permaliens Shashin ont été enregistrés."
+
+#: shashin-permalinks.php:164
+msgid "Shashin permalinks settings resetted to defaults."
+msgstr "Les paramètres des permaliens Shashin ont été réinitialisés."
+
+#: shashin-permalinks.php:175
+msgid "Enable Shashin permalinks"
+msgstr "Activer les permaliens Shashin"
+
+#: shashin-permalinks.php:179
+msgid "Keyword for album parameter"
+msgstr "Mot clé pour le paramètre album"
+
+#: shashin-permalinks.php:183
+msgid "Keyword for page parameter"
+msgstr "Mot clé pour le paramètre page"
+
+#: shashin-permalinks.php:184
+msgid "Can be empty, in this case URIs will be \"/album/ID/PAGE/\""
+msgstr "Peut être vide, dans ce cas les URIs seront \"/album/ID/PAGE/\""
+
+#: shashin-permalinks.php:188
+msgid "Save settings"
+msgstr "Enregistrer les paramètres"
+
+#: shashin-permalinks.php:189
+msgid "Do you really want to reset your configuration ?"
+msgstr "Voulez-vous vraiment réinitialiser les paramètres ?"
+
+#: shashin-permalinks.php:189
+msgid "Reset settings"
+msgstr "Réinitialiser les paramètres"
