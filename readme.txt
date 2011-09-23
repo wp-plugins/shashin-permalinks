@@ -48,7 +48,9 @@ This plugin can be used to:
 Nothing, for the moment...
 
 == Changelog ==
+
 = 1.1 =
 * Only replace real links (<a href=...)
+
 = 1.0 =
 * Initial Release 
