@@ -5,7 +5,7 @@ Plugin URI: http://kerlinux.org/info/soft/shashin-permalinks
 Description: This plugin add permalinks support for Shashin plugin galleries (default keywords: "album" and "page")
 Author: Sébastien "SLiX" Liénard
 Author URI: http://kerlinux.org
-Version: 1.1
+Version: 1.11
 License: GPLv3
 */
 
@@ -52,12 +52,12 @@ function shashin_permalinks_replace ($content)
 
 		global $key_album, $key_page;
 
-		$content = preg_replace('/(<a\s+href=[\'"][^>]+)(\?|&amp;)shashin_album_key=(\d+)\/*/i', '$1' . $key_album . '/$3/', $content);
+		$content = preg_replace('/(\s+href=[\'"][^>]+)(\?|&amp;)shashin_album_key=(\d+)\/*/i', '$1' . $key_album . '/$3/', $content);
 
 		if (isset($key_page) && $key_page != '') {
-			$content = preg_replace('/(<a\s+href=[\'"][^>]+)(\?|&amp;)shashin_page=(\d+)\/*/i', '$1' . $key_page . '/$3/', $content);
+			$content = preg_replace('/(\s+href=[\'"][^>]+)(\?|&amp;)shashin_page=(\d+)\/*/i', '$1' . $key_page . '/$3/', $content);
 		} else {
-			$content = preg_replace('/(<a\s+href=[\'"][^>]+)(\?|&amp;)shashin_page=(\d+)\/*/i', '$1' . '$3/', $content);
+			$content = preg_replace('/(\s+href=[\'"][^>]+)(\?|&amp;)shashin_page=(\d+)\/*/i', '$1' . '$3/', $content);
 		}
 	}
 	return $content;
