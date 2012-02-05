@@ -5,7 +5,7 @@ Plugin URI: http://kerlinux.org/info/soft/shashin-permalinks
 Description: This plugin add permalinks support for Shashin plugin galleries (default keywords: "album" and "page")
 Author: Sébastien "SLiX" Liénard
 Author URI: http://kerlinux.org
-Version: 1.11
+Version: 1.2
 License: GPLv3
 */
 
