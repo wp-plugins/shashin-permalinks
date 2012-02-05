@@ -1,78 +1,94 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the WordPress plugin Shashin permalinks 1.2 by Sébastien "SLiX" Liénard.
+# Copyright (C) 2011 Sébastien "SLiX" Liénard
+# This file is distributed under the same license as the Shashin permalinks package.
+# Sébastien "SLiX" Liénard <my_nickname_at_kerlinux.org>, 2011.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Shashin permalinks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-12 21:51+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2012-02-05 19:00+0200\n"
+"PO-Revision-Date: 2012-02-05 19:00+0200\n"
+"Last-Translator: Sébastien SLiX Liénard <my_nickname_at_kerlinux.org>\n"
+"Language-Team: fr_FR <my_nickname_at_kerlinux.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: shashin-permalinks.php:122 shashin-permalinks.php:169
+#: shashin-permalinks.php:167 shashin-permalinks.php:218
 msgid "Shashin permalinks options"
 msgstr ""
 
-#: shashin-permalinks.php:122
+#: shashin-permalinks.php:167
 msgid "Shashin permalinks"
 msgstr ""
 
-#: shashin-permalinks.php:128
+#: shashin-permalinks.php:173
 msgid "You cannot edit the Shashin permalinks options."
 msgstr ""
 
-#: shashin-permalinks.php:139
+#: shashin-permalinks.php:184
 msgid "Value for <strong>Album</strong> parameter is invalid"
 msgstr ""
 
-#: shashin-permalinks.php:144
+#: shashin-permalinks.php:189
 msgid "Value for <strong>Page</strong> parameter is invalid"
 msgstr ""
 
-#: shashin-permalinks.php:149
+#: shashin-permalinks.php:194
 msgid "Shashin permalinks settings were not updated"
 msgstr ""
 
-#: shashin-permalinks.php:154
+#: shashin-permalinks.php:201
 msgid "Shashin permalinks settings saved"
 msgstr ""
 
-#: shashin-permalinks.php:164
+#: shashin-permalinks.php:213
 msgid "Shashin permalinks settings resetted to defaults."
 msgstr ""
 
-#: shashin-permalinks.php:175
+#: shashin-permalinks.php:224
 msgid "Enable Shashin permalinks"
 msgstr ""
 
-#: shashin-permalinks.php:179
+#: shashin-permalinks.php:228
 msgid "Keyword for album parameter"
 msgstr ""
 
-#: shashin-permalinks.php:183
+#: shashin-permalinks.php:232
 msgid "Keyword for page parameter"
 msgstr ""
 
-#: shashin-permalinks.php:184
+#: shashin-permalinks.php:233
 msgid "Can be empty, in this case URIs will be \"/album/ID/PAGE/\""
 msgstr ""
 
-#: shashin-permalinks.php:188
+#: shashin-permalinks.php:236
+msgid "Update titles [Experimental]"
+msgstr ""
+
+#: shashin-permalinks.php:237
+msgid "When enabled, current album name will be added to page/post title"
+msgstr ""
+
+#: shashin-permalinks.php:240
+msgid "Fix Sociable plugin links"
+msgstr ""
+
+#: shashin-permalinks.php:241
+msgid "When enabled, Sociable plugin links will point to current album"
+msgstr ""
+
+#: shashin-permalinks.php:245
 msgid "Save settings"
 msgstr ""
 
-#: shashin-permalinks.php:189
+#: shashin-permalinks.php:246
 msgid "Do you really want to reset your configuration ?"
 msgstr ""
 
-#: shashin-permalinks.php:189
+#: shashin-permalinks.php:246
 msgid "Reset settings"
 msgstr ""
