@@ -50,7 +50,7 @@ Nothing, for the moment...
 == Changelog ==
 
 = 1.2 =
-* Can fix Sociable plugin link to point them to current album
+* Can fix Sociable plugin links to point them to current album
 * Can add current album name to post/page title [Experimental]
 
 = 1.11 =
