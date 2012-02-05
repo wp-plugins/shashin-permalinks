@@ -1,6 +1,6 @@
-# Translation of the WordPress plugin Shashin permalinks 1.0 by Sébastien "SLiX" Liénard.
+# Translation of the WordPress plugin Shashin permalinks 1.2 by Sébastien "SLiX" Liénard.
 # Copyright (C) 2011 Sébastien "SLiX" Liénard
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Shashin permalinks package.
 # Sébastien "SLiX" Liénard <my_nickname_at_kerlinux.org>, 2011.
 #
 #, fuzzy
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shashin permalinks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-09 21:52+0200\n"
-"PO-Revision-Date: 2011-09-12 20:10+0200\n"
+"POT-Creation-Date: 2012-02-05 19:00+0200\n"
+"PO-Revision-Date: 2012-02-05 19:00+0200\n"
 "Last-Translator: Sébastien SLiX Liénard <my_nickname_at_kerlinux.org>\n"
 "Language-Team: fr_FR <my_nickname_at_kerlinux.org>\n"
 "Language: fr_FR\n"
@@ -17,62 +17,78 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: shashin-permalinks.php:122 shashin-permalinks.php:169
+#: shashin-permalinks.php:167 shashin-permalinks.php:218
 msgid "Shashin permalinks options"
 msgstr "Options des permaliens Shashin"
 
-#: shashin-permalinks.php:122
+#: shashin-permalinks.php:167
 msgid "Shashin permalinks"
 msgstr "Permaliens Shashin"
 
-#: shashin-permalinks.php:128
+#: shashin-permalinks.php:173
 msgid "You cannot edit the Shashin permalinks options."
 msgstr "Vous n'êtes pas autorisé à modifier les paramètres des permaliens Shashin"
 
-#: shashin-permalinks.php:139
+#: shashin-permalinks.php:184
 msgid "Value for <strong>Album</strong> parameter is invalid"
 msgstr "La valeur du paramètre <strong>Album</strong> est invalide"
 
-#: shashin-permalinks.php:144
+#: shashin-permalinks.php:189
 msgid "Value for <strong>Page</strong> parameter is invalid"
 msgstr "La valeur du paramètre <strong>Page</strong> est invalide"
 
-#: shashin-permalinks.php:149
+#: shashin-permalinks.php:194
 msgid "Shashin permalinks settings were not updated"
 msgstr "Les paramètres des permaliens Shashin n'ont pas été mis à jour"
 
-#: shashin-permalinks.php:154
+#: shashin-permalinks.php:201
 msgid "Shashin permalinks settings saved"
 msgstr "Les paramètres des permaliens Shashin ont été enregistrés."
 
-#: shashin-permalinks.php:164
+#: shashin-permalinks.php:213
 msgid "Shashin permalinks settings resetted to defaults."
 msgstr "Les paramètres des permaliens Shashin ont été réinitialisés."
 
-#: shashin-permalinks.php:175
+#: shashin-permalinks.php:224
 msgid "Enable Shashin permalinks"
 msgstr "Activer les permaliens Shashin"
 
-#: shashin-permalinks.php:179
+#: shashin-permalinks.php:228
 msgid "Keyword for album parameter"
 msgstr "Mot clé pour le paramètre album"
 
-#: shashin-permalinks.php:183
+#: shashin-permalinks.php:232
 msgid "Keyword for page parameter"
 msgstr "Mot clé pour le paramètre page"
 
-#: shashin-permalinks.php:184
+#: shashin-permalinks.php:233
 msgid "Can be empty, in this case URIs will be \"/album/ID/PAGE/\""
 msgstr "Peut être vide, dans ce cas les URIs seront \"/album/ID/PAGE/\""
 
-#: shashin-permalinks.php:188
+#: shashin-permalinks.php:236
+msgid "Update titles [Experimental]"
+msgstr "Mettre à jour les titres [Expérimental]"
+
+#: shashin-permalinks.php:237
+msgid "When enabled, current album name will be added to page/post title"
+msgstr "Si activé, le nom de l'ablum actuel sera ajouté au titre de la page"
+
+#: shashin-permalinks.php:240
+msgid "Fix Sociable plugin links"
+msgstr "Corriger les liens du plugin Sociable"
+
+#: shashin-permalinks.php:241
+msgid "When enabled, Sociable plugin links will point to current album"
+msgstr "Si activé, les liens du plugin Sociable pointeront vers l'ablum actuel"
+
+#: shashin-permalinks.php:245
 msgid "Save settings"
 msgstr "Enregistrer les paramètres"
 
-#: shashin-permalinks.php:189
+#: shashin-permalinks.php:246
 msgid "Do you really want to reset your configuration ?"
 msgstr "Voulez-vous vraiment réinitialiser les paramètres ?"
 
-#: shashin-permalinks.php:189
+#: shashin-permalinks.php:246
 msgid "Reset settings"
 msgstr "Réinitialiser les paramètres"

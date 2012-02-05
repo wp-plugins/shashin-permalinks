@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Shashin permalinks
-Plugin URI: http://kerlinux.org/devs/shashin-permalinks
+Plugin URI: http://kerlinux.org/info/soft/shashin-permalinks
 Description: This plugin add permalinks support for Shashin plugin galleries (default keywords: "album" and "page")
 Author: Sébastien "SLiX" Liénard
 Author URI: http://kerlinux.org
-Version: 1.0
+Version: 1.11
 License: GPLv3
 */
 
@@ -37,6 +37,14 @@ if (get_option('shashin_permalinks-on')) {
 	add_action( 'wp_loaded',			'shashin_permalinks_wp_loaded' );
 	add_action( 'pre_get_posts',		'shashin_permalinks_pre_get_posts' );
 
+	if (get_option('shashin_permalinks-title_on')) {
+		add_action( 'the_post',			'shashin_permalinks_add_title');
+	}
+
+	if (get_option('shashin_permalinks-sociable_on')) {
+		add_filter( 'sociable_link',	'shashin_permalinks_add');
+	}
+
 	// Set global variables
 	$key_album = get_option('shashin_permalinks-key_album');
 	$key_page = get_option('shashin_permalinks-key_page');
@@ -46,18 +54,51 @@ add_action('admin_menu', 'shashin_permalinks_menu');
 register_activation_hook(__FILE__, 'shashin_permalinks_install');
 register_deactivation_hook(__FILE__, 'shashin_permalinks_uninstall');
 
+function shashin_permalinks_add_title ($post)
+{
+	if (isset($_REQUEST['shashin_album_key']) && $_REQUEST['shashin_album_key'] != '') {
+		$album = new ShashinAlbum();
+
+		list($result, $message, $db_error) = $album->getAlbum(array('album_key' => $_REQUEST['shashin_album_key']));
+		if (isset($album->data['title']) && $album->data['title'] != '') {
+			$post->post_title = $album->data['title'] . ' - ' . $post->post_title;
+		}
+	}
+}
+
+function shashin_permalinks_add ($content)
+{
+	global $key_album;
+
+	if ( get_option('permalink_structure') != '' && ! is_preview() ) {
+
+		if (isset($_REQUEST['shashin_album_key']) && $_REQUEST['shashin_album_key'] != '') {
+			// Replace permalinks by current album permalink
+
+			// First for regular URLs
+			$permalink = get_permalink();
+			$content = preg_replace("#($permalink)#", '$1' . $key_album . '/' . $_REQUEST['shashin_album_key'] . '/', $content);
+
+			// Next for encoded URLs
+			$permalink = urlencode($permalink);
+			$content = preg_replace("#($permalink)#", '$1' . urlencode($key_album . '/' . $_REQUEST['shashin_album_key'] . '/'), $content);
+		}
+	}
+	return $content;
+}
+
 function shashin_permalinks_replace ($content)
 {
 	if ( get_option('permalink_structure') != '' && ! is_preview() ) {
 
 		global $key_album, $key_page;
 
-		$content = preg_replace('/(\?|&amp;)shashin_album_key=(\d+)\/*/i', $key_album . '/$2/', $content);
+		$content = preg_replace('/(\s+href=[\'"][^>]+)(\?|&amp;)shashin_album_key=(\d+)\/*/i', '$1' . $key_album . '/$3/', $content);
 
 		if (isset($key_page) && $key_page != '') {
-			$content = preg_replace('/(\?|&amp;)shashin_page=(\d+)\/*/i', $key_page . '/$2/', $content);
+			$content = preg_replace('/(\s+href=[\'"][^>]+)(\?|&amp;)shashin_page=(\d+)\/*/i', '$1' . $key_page . '/$3/', $content);
 		} else {
-			$content = preg_replace('/(\?|&amp;)shashin_page=(\d+)\/*/i', '$2/', $content);
+			$content = preg_replace('/(\s+href=[\'"][^>]+)(\?|&amp;)shashin_page=(\d+)\/*/i', '$1' . '$3/', $content);
 		}
 	}
 	return $content;
@@ -110,12 +151,16 @@ function shashin_permalinks_install() {
 	add_option('shashin_permalinks-on', 0);
 	add_option('shashin_permalinks-key_album', 'album');
 	add_option('shashin_permalinks-key_page', 'page');
+	add_option('shashin_permalinks-title_on', 0);
+	add_option('shashin_permalinks-sociable_on', 0);
 }
 
 function shashin_permalinks_uninstall() {
 	delete_option('shashin_permalinks-on');
 	delete_option('shashin_permalinks-key_album');
 	delete_option('shashin_permalinks-key_page');
+	delete_option('shashin_permalinks-title_on');
+	delete_option('shashin_permalinks-sociable_on');
 }
 
 function shashin_permalinks_menu() {
@@ -151,6 +196,8 @@ function shashin_permalinks_options() {
 			update_option('shashin_permalinks-on', $_POST['shashin_permalinks-on']);
 			update_option('shashin_permalinks-key_album', $post_key_album);
 			update_option('shashin_permalinks-key_page', $post_key_page);
+			update_option('shashin_permalinks-title_on', $_POST['shashin_permalinks-title_on']);
+			update_option('shashin_permalinks-sociable_on', $_POST['shashin_permalinks-sociable_on']);
 			echo '<div id="message" class="updated fade"><p>' . __('Shashin permalinks settings saved', 'shashin-permalinks') . '</p></div>';
 		}
 	}
@@ -160,6 +207,8 @@ function shashin_permalinks_options() {
 		//update_option('shashin_permalinks-on', 0);
 		update_option('shashin_permalinks-key_album', 'album');
 		update_option('shashin_permalinks-key_page', 'page');
+		update_option('shashin_permalinks-title_on', 0);
+		update_option('shashin_permalinks-sociable_on', 0);
 
 		echo '<div id="message" class="updated fade"><p>' . __('Shashin permalinks settings resetted to defaults.', 'shashin-permalinks') . '</p></div>';
 	}
@@ -182,6 +231,14 @@ function shashin_permalinks_options() {
 	echo '<tr valign="top">';
 	echo '<th scope="row"><label for="shashin_permalinks-key_page">'.__('Keyword for page parameter', 'shashin-permalinks').':</label></th>';
 	echo '<td><input name="shashin_permalinks-key_page" type="text" id="shashin_permalinks-key_page" value="'; echo stripslashes(get_option('shashin_permalinks-key_page')); echo '" class="regular-text" /><br /><span class="description">'; _e('Can be empty, in this case URIs will be "/album/ID/PAGE/"','shashin-permalinks'); echo '</span></td>';
+	echo '</tr>';
+	echo '<tr valign="top">';
+	echo '<th scope="row"><label for="shashin_permalinks-title_on">'.__('Update titles [Experimental]', 'shashin-permalinks').':</label></th>';
+	echo '<td><input name="shashin_permalinks-title_on" type="checkbox" id="shashin_permalinks-title_on"'; echo get_option('shashin_permalinks-title_on')?'checked':''; echo ' value="1" /><br /><span class="description">'; _e('When enabled, current album name will be added to page/post title','shashin-permalinks'); echo '</span></td>';
+	echo '</tr>';
+	echo '<tr valign="top">';
+	echo '<th scope="row"><label for="shashin_permalinks-sociable_on">'.__('Fix Sociable plugin links', 'shashin-permalinks').':</label></th>';
+	echo '<td><input name="shashin_permalinks-sociable_on" type="checkbox" id="shashin_permalinks-sociable_on"'; echo get_option('shashin_permalinks-sociable_on')?'checked':''; echo ' value="1" /><br /><span class="description">'; _e('When enabled, Sociable plugin links will point to current album','shashin-permalinks'); echo '</span></td>';
 	echo '</tr>';
 	echo '</table>';
 	echo '<p class="submit">';
