@@ -5,7 +5,7 @@ Plugin URI: http://kerlinux.org/info/soft/shashin-permalinks
 Description: This plugin add permalinks support for Shashin plugin galleries (default keywords: "album" and "page")
 Author: Sébastien "SLiX" Liénard
 Author URI: http://kerlinux.org
-Version: 1.2
+Version: 1.21
 License: GPLv3
 */
 
@@ -56,11 +56,18 @@ register_deactivation_hook(__FILE__, 'shashin_permalinks_uninstall');
 
 function shashin_permalinks_add_title ($post)
 {
+	global $key_album;
+
 	if (isset($_REQUEST['shashin_album_key']) && $_REQUEST['shashin_album_key'] != '') {
 		$album = new ShashinAlbum();
 
 		list($result, $message, $db_error) = $album->getAlbum(array('album_key' => $_REQUEST['shashin_album_key']));
-		if (isset($album->data['title']) && $album->data['title'] != '') {
+
+		# Strip shashin album key from current URI
+		# the result is used to determine if post needs title change
+		$uri = preg_replace("#/$key_album/.*$#", '/', $_SERVER["REQUEST_URI"]);
+
+		if (preg_match("#$uri#", get_permalink()) && isset($album->data['title']) && $album->data['title'] != '') {
 			$post->post_title = $album->data['title'] . ' - ' . $post->post_title;
 		}
 	}

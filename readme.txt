@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: picasa, image, images, picture, pictures, photo, photos, permalinks, shashin
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 1.2
+Stable tag: 1.21
 
 This plugin adds permalinks support for Shashin 2 plugin galleries (default keywords: "album" and "page")
 
@@ -48,6 +48,9 @@ This plugin can be used to:
 Nothing, for the moment...
 
 == Changelog ==
+
+= 1.21 =
+* Better handling of titles replacements
 
 = 1.2 =
 * Can fix Sociable plugin links to point them to current album
